@@ -1,22 +1,21 @@
 :root{
     --loading-grey:#ededed;
-    --common-width:50%;
+    --common-width:calc(1184px*0.7);
 }
 html,body{
     margin: 0;
     border: 0;
-    /* background: url("../img/background.jpeg") no-repeat;
-    background-size: 100% 100%; */
+background-color: #FFFFFF;
 }
 body{
-    /* min-height: 100vh; */
+    min-height: 90vh;
 }
 .inner{
     width: 1184px;
 }
 .head{
     margin: auto;
-    background-color: #ededed;
+    background-color: #336666;
 }
 .nav{
     margin: auto;
@@ -35,13 +34,18 @@ body{
 .nav ul li{
     padding: 10px;
 }
-.nav ul li a{
-    text-decoration: none;
-    color: #000000;
-}
 .nav ul li:hover{
     background-color: #f6f6f6;
     animation-delay: .1s;
+}
+.nav ul li a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+}
+.nav ul li:hover> a{
+    color: #336666;
 }
 .main{
     height: 550px;
@@ -53,9 +57,11 @@ body{
     align-items: center;
     margin: auto;
     height: 50px;
-    background-color: #ededed;
+    background-color: #336666;
 }
 .foot_text{
+    padding: 10px;
     margin: auto;
     text-align: center;
+    background-color: #FFFFFF;
 }
