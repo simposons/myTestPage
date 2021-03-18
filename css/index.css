@@ -1,100 +1,61 @@
 :root{
     --loading-grey:#ededed;
+    --common-width:50%;
+}
+html,body{
+    margin: 0;
+    border: 0;
+    /* background: url("../img/background.jpeg") no-repeat;
+    background-size: 100% 100%; */
 }
 body{
-    background-color: #f6f6f6;
+    /* min-height: 100vh; */
+}
+.inner{
+    width: 1184px;
+}
+.head{
+    margin: auto;
+    background-color: #ededed;
+}
+.nav{
+    margin: auto;
+    margin-top: 20px;
+    width: var(--common-width);
+}
+.nav ul{
+    padding: 10px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
+    /* 去掉ul样式 */
+    list-style:none; 
 }
-.card{
-    width: 320px;
-    background-color: #fff;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, .12);
+.nav ul li{
+    padding: 10px;
 }
-.image{
-    height: 200px;
+.nav ul li a{
+    text-decoration: none;
+    color: #000000;
 }
-.image img{
-    display: block;
-    width: 100%;
-    height: inherit;
-    object-fit: cover;
+.nav ul li:hover{
+    background-color: #f6f6f6;
+    animation-delay: .1s;
 }
-.content{
-padding: 2rem 1.8rem;
+.main{
+    height: 550px;
+    background-color: #f6f6f6;
+    margin: auto;
 }
-h4{
-    margin: 0 0  1rem;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+.foot{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    background-color: #ededed;
 }
-.description{
-    font-size: 1rem;
-    line-height: 1.4rem;
-}
-/* loading 类实现 */
-.loading .image,
-.loading h4,
-.loading .description{
-    background-color: var(--loading-grey);
-    background: linear-gradient(
-        100deg,
-        rgba(255,255,255,0) 40%,
-        rgba(255,255,255,.5) 50%,
-        rgba(255,255,255,0) 60%
-    ) var(--loading-grey);
-    background-size: 200% 100%;
-    background-position-x: 180%;
-    animation: 1s loading ease-in-out infinite;
-}
-@keyframes loading{
-    to{
-        background-position-x: -20%;
-    }
-}
-.loading h4{
-    min-height: 1.4rem;
-    border-radius: 4px;
-    animation-delay: .05s;
-}
-.loading .description{
-    min-height: 4rem;
-    border-radius: 4px;
-    animation-delay: .06s;
-
-}
-/* empty选择器实现 */
-.image:empty,
-h4:empty,
-.description:empty{
-    background-color: var(--loading-grey);
-    background: linear-gradient(
-        100deg,
-        rgba(255,255,255,0) 40%,
-        rgba(255,255,255,.5) 50%,
-        rgba(255,255,255,0) 60%
-    ) var(--loading-grey);
-    background-size: 200% 100%;
-    background-position-x: 180%;
-    animation: 1s loading ease-in-out infinite;
-}
-@keyframes loading{
-    to{
-        background-position-x: -20%;
-    }
-}
-h4:empty{
-    min-height: 1.4rem;
-    border-radius: 4px;
-    animation-delay: .05s;
-}
-.description:empty{
-    min-height: 4rem;
-    border-radius: 4px;
-    animation-delay: .06s;
-
+.foot_text{
+    margin: auto;
+    text-align: center;
 }
