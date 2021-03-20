@@ -13,6 +13,7 @@ body{
 .inner{
     width: 1184px;
 }
+/* 头部 */
 .head{
     margin: auto;
     background-color: #336666;
@@ -33,10 +34,10 @@ body{
 }
 .nav ul li{
     padding: 10px;
+    transition:.1s;
 }
 .nav ul li:hover{
     background-color: #f6f6f6;
-    animation-delay: .1s;
 }
 .nav ul li a{
     text-decoration: none;
@@ -47,11 +48,64 @@ body{
 .nav ul li:hover> a{
     color: #336666;
 }
+/* 中部 */
 .main{
-    height: 550px;
+    height: auto;
     background-color: #f6f6f6;
     margin: auto;
 }
+#blockPage{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+.block{
+    width: 300px;
+    height: 200px;
+    background-color: #336666;
+    margin: 30px;
+    border-radius: 8px;
+    transition: .1s;
+}
+.block:hover{
+    width: 300px;
+    height: 200px;
+    background-color: #356d6d;
+}
+.block:hover .block_content{
+    margin: 10px;
+    background-color: #a5a4a4;
+}
+.block_content{
+    width: 280px;
+    height: 150px;
+    margin: 10px;
+    background-color: #999999;
+}
+.block_text{
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 5px;
+}
+.block_text a{
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: .1s;
+}.block_text a:hover{
+    color: #ededed;
+}
+.addButton{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+.addButton button{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+}
+/* 底部 */
 .foot{
     display: flex;
     align-items: center;
@@ -64,4 +118,15 @@ body{
     margin: auto;
     text-align: center;
     background-color: #FFFFFF;
+}
+/* 右侧悬浮 */
+.suspend{
+    position: fixed;
+    height: 100vh;
+    width: 40px;
+    background-color: #999999;
+    z-index: 100;
+    right:0px;
+    top: 0px;
+    bottom: 0px;
 }
