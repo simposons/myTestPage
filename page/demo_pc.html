@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="../css/weui.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/jquery-weui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/addPicture_pc.css">
+    <link rel="stylesheet" type="text/css" href="../css/animate.min.css">
+
+    <script type="text/javascript" src="../js/common/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/common/jquery-weui.min.js"></script>
+    <script type="text/javascript" src="../js/addPicture_pc.js"></script>
+    <script type="text/javascript" src="../js/addMorePicture_pc.js"></script>
+    <!--此样式无用 请不要粘-->
+    <style>
+        h3 {
+            margin: 10px 0 5px 20px;
+        }
+    </style>
+    <title>demo</title>
+</head>
+<body>
+<h3>pc上传单个文件组件</h3>
+<!--
+     组件名称：上传文件组件
+     有bug找芦芃
+ 需要引入文件：
+        <link rel="stylesheet" href="../../../zp_app/css/demo/addPicture.css">
+        <link type="text/css" href="../../../zp_app/css/common/weui.css" rel="stylesheet"/>
+        <link type="text/css" href="../../../zp_app/css/common/jquery-weui.css" rel="stylesheet"/>
+        <script type="text/javascript" src="../../../zp_app/js/common/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../../zp_app/js/common/jquery-weui.min.js"></script>
+        <script type="text/javascript" src="../../../zp_app/js/demo/addPicture.js"></script>
+ 使用方式：
+          1复制该div
+          2初始化
+     /**
+     *
+     * @param {*页面中的bpmid} bpmid
+     * @param {*图片上传字段和字段名集合} List
+     * @param {*类名为picture-box的div对应id} id
+     * @returns
+     */
+     2初始化  调用initAddPicture(bpmid, List, id)
+     List 示例
+   /**
+     * @param {*} name
+     * @param {*name的简拼} nameTag
+     * @param {*是否可以预览} isClick 默认值1：可点击 ，0: 不可点击
+     * @param {*限制文件上传类型} fileType 默认值 1 上传 .BMP .PNG .GIF .JPG .JPEG, 2:1+.PDF, 3:2+.TXT+DOC+DOCX, 4:.TXT+DOC+DOCX
+     * @param {*限制文件上传大小} fileSize 默认值 1M
+     * @returns
+     */
+    let List = [{
+        name: '身份证正面',
+        nameTag: 'sfzzm',
+        isClick: 0,
+        fileType: 1,
+        fileSize: 1,
+    },
+        {
+            name: '身份证反面',
+            nameTag: 'sfzfm',
+            isClick: 1,
+            fileType: 1,
+            fileSize: 1,
+        },
+    ]
+    3.获取图片是否上传 调用getUploadState()
+-->
+<div class="picture-box" id="picture1"></div>
+<div style="width: 100%;text-align: center">
+    <button onclick="getUploadState();getUrl();">提交(示例)</button>
+</div>
+<h3>pc上传多个文件组件</h3>
+<div class="picture-box" id="picture2"></div>
+<div class="picture-box" id="picture3"></div>
+<!-- <div style="width: 100%;text-align: center">
+    <button onclick="getUploadState();getUrl();">提交(示例)</button>
+</div> -->
+</body>
+<script>
+    $( function () {
+        // 初始化上传单个文件组件
+        let bpmid = 100000000
+        /**
+         * @param {*} name
+         * @param {*name的简拼} nameTag
+         * @param {*是否是头像(主要是样式不同)} isTitle 默认值0：不是 ，1: 是
+         * @param {*是否可以预览} isClick 默认值1：可点击 ，0: 不可点击
+         * @param {*限制文件上传类型} fileType 默认值 1 上传 .BMP .PNG .GIF .JPG .JPEG, 2:1+.PDF, 3:2+.TXT+DOC+DOCX, 4:.TXT+DOC+DOCX
+         * @param {*限制文件上传大小} fileSize 默认值 1M
+         * @returns
+         */
+        let List = [{
+            name: '身份证正面',
+            nameTag: 'sfzzm',
+            isTitle: 0,
+            isClick: 0,
+            fileType: 1,
+            fileSize: 1,
+        },
+            {
+                name: '身份证反面',
+                nameTag: 'sfzfm',
+                isTitle: 0,
+                isClick: 1,
+                fileType: 1,
+                fileSize: 1,
+            },
+            {
+                name: '头像',
+                nameTag: 'sfzfm',
+                isTitle: 1,
+                isClick: 1,
+                fileType: 1,
+                fileSize: 1,
+            },
+        ]
+        let id = 'picture1'
+        initAddPicture(bpmid, List, id)
+        // 初始化上传多个文件组件
+                /**
+         * @param {*} name
+         * @param {*name的简拼} nameTag
+         * @param {*是否是头像(主要是样式不同)} isTitle 默认值0：不是 ，1: 是
+         * @param {*是否可以预览} isClick 默认值1：可点击 ，0: 不可点击
+         * @param {*限制文件上传类型} fileType 默认值 1 上传 .BMP .PNG .GIF .JPG .JPEG, 2:1+.PDF, 3:2+.TXT+DOC+DOCX, 4:.TXT+DOC+DOCX
+         * @param {*限制文件上传大小} fileSize 默认值 1M
+         * @param {*限制文件上传个数} fileNum 默认值 5张
+         * @param {*限制文件上传个数} isMustUpload 默认值  必传
+         * @returns
+         */
+         let MorePicList = [{
+            name: '身份证正面',
+            nameTag: 'sfzzm1',
+            isClick: 0,
+            fileType: 1,
+            fileSize: 1,
+            fileNum: 5,
+            isMustUpload: true,
+        },{
+            name: '身份证饭面',
+            nameTag: 'sfzfm2',
+            isClick: 0,
+            fileType: 1,
+            fileSize: 1,
+            fileNum: 5,
+            isMustUpload: true,
+        },
+        ]
+        initAddMorePicture(bpmid, MorePicList, 'picture2')
+        let MorePicList2 = [{
+            name: '打哈',
+            nameTag: 'dh',
+            isClick: 0,
+            fileType: 1,
+            fileSize: 1,
+            fileNum: 5,
+            isMustUpload: true,
+        },{
+            name: '打火机',
+            nameTag: 'dhj',
+            isClick: 0,
+            fileType: 1,
+            fileSize: 1,
+            fileNum: 5,
+            isMustUpload: true,
+        },
+        ]
+        initAddMorePicture(bpmid, MorePicList2, 'picture3')
+    })
+
+  
+</script>
+</html>
