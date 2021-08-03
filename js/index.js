@@ -9,7 +9,7 @@ $(function () {
 function footTextChange() {
   $.ajax({
     type: "GET",
-    url: "../txt/words.json",
+    url: "./txt/words.json",
     dataType: "json",
     success: function (data) {
       console.log('data==========', data);
@@ -54,11 +54,11 @@ function colorReverse(oldColor) {
   var str = '000000' + (0xFFFFFF - oldColor).toString(16);
   return str.substring(str.length - 6, str.length);
 }
-
+// 初始化页面
 function initPage() {
   $.ajax({
     type: 'GET',
-    url: '../txt/block.json',
+    url: './txt/block.json',
     dataType: 'json',
     success: function (data) {
       console.log('data==========', data);
