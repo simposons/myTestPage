@@ -9,7 +9,7 @@ $(function () {
 function footTextChange() {
   $.ajax({
     type: "GET",
-    url: "txt/words.json",
+    url: "../txt/words.json",
     dataType: "json",
     success: function (data) {
       console.log('data==========', data);
